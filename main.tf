@@ -90,7 +90,7 @@ resource "aviatrix_spoke_gateway" "default" {
   private_mode_subnet_zone    = var.private_mode_subnets && local.cloud == "aws" ? format("%s%s", var.region, local.az1) : null
   ha_private_mode_subnet_zone = var.private_mode_subnets && local.cloud == "aws" && local.ha_gw ? format("%s%s", var.region, local.az2) : null
   lifecycle {
-    ignore_changes = [ gw_size, tags ]
+    ignore_changes = [ gw_size, tags, enable_global_vpc ]
   }
 }
 
